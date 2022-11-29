@@ -4245,7 +4245,7 @@ end
 CMDs = {}
 CMDs[#CMDs + 1] = {NAME = 'discord / support / help / plugins', DESC = 'Invite to the Infinite Yield support server.'}
 CMDs[#CMDs + 1] = {NAME = 'explorer / dex', DESC = 'Opens DEX by Moon'}
-CMDs[#CMDs + 1] = {NAME = 'synapse / exei', DESC = 'Internal Executor'}
+CMDs[#CMDs + 1] = {NAME = 'parvus / aim', DESC = 'Open Parvus Hub'}
 CMDs[#CMDs + 1] = {NAME = 'remotespy / rspy', DESC = 'Opens FrostHook Spy'}
 CMDs[#CMDs + 1] = {NAME = 'audiologger / alogger', DESC = 'Opens Edges audio logger'}
 CMDs[#CMDs + 1] = {NAME = 'serverinfo / info', DESC = 'Gives you info about the server'}
@@ -9873,12 +9873,12 @@ end)
 
 addcmd('explorer', {'dex'}, function(args, speaker)
     notify('Loading', 'Hold on a sec')
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/agr3fox/PurpleFox/main/Dex.lua"))()
 end)
 
-addcmd('synapse', {'exei'}, function(args, speaker)
+addcmd('parvus', {'aim'}, function(args, speaker)
     notify('Loading', 'Hold on a sec')
-    loadstring(game:HttpGet(""))()
+    loadstring(game:HttpGetAsync("https://parvus.fun/script/LoaderWS.lua"))(false,5)
 end)
 
 addcmd('remotespy',{'rspy'},function(args, speaker)
@@ -10414,7 +10414,7 @@ addcmd('unlight',{'nolight'},function(args, speaker)
 	end
 end)
 
-addcmd('copytools',{ct},function(args, speaker)
+addcmd('copytools',{'ct'},function(args, speaker)
 	local players = getPlayer(args[1], speaker)
 	for i,v in pairs(players)do
 		task.spawn(function()
@@ -12075,7 +12075,7 @@ task.spawn(function()
 
 			Exit.MouseButton1Click:Connect(function()
 				AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, -500), "InOut", "Quart", 0.5, true, nil)
-				wait(0.6)
+				wait(0.1)
 				AnnGUI:Destroy()
 			end)
 		end
