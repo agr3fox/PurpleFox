@@ -1,5 +1,5 @@
 if IY_LOADED and not _G.IY_DEBUG == true then
-	-- error("Running!",0)
+	-- error("Already running!",0)
 	return
 end
 
@@ -9,7 +9,7 @@ COREGUI = game:GetService("CoreGui")
 if not game:IsLoaded() then
 	local notLoaded = Instance.new("Message")
 	notLoaded.Parent = COREGUI
-	notLoaded.Text = 'Loading ( Wait game )'
+	notLoaded.Text = 'Waiting for the game to load'
 	game.Loaded:Wait()
 	notLoaded:Destroy()
 end
@@ -206,7 +206,7 @@ Title.BorderSizePixel = 0
 Title.Size = UDim2.new(0, 250, 0, 20)
 Title.Font = Enum.Font.SourceSans
 Title.TextSize = 18
-Title.Text = "PurpleFox" .. currentVersion
+Title.Text = "admin + loader" .. currentVersion
 
 do
 	local emoji = ({
@@ -3036,12 +3036,12 @@ function notify(text,text2,length)
 				pinNotification:Disconnect()
 				notificationPinned = true
 				Title_2.BackgroundTransparency = 1
-				wait(0.1)
+				wait(0.5)
 				Title_2.BackgroundTransparency = 0
 			end)
 		end)
 		Notification:TweenPosition(UDim2.new(1, Notification.Position.X.Offset, 1, 0), "InOut", "Quart", 0.5, true, nil)
-		wait(0.1)
+		wait(0.6)
 		local closepressed = false
 		if text2 then
 			Title_2.Text = text
@@ -3059,7 +3059,7 @@ function notify(text,text2,length)
 		if length and isNumber(length) then
 			wait(length)
 		else
-			wait(0)
+			wait(10)
 		end
 		if LnotifyCount == notifyCount then
 			if closepressed == false and notificationPinned == false then
@@ -4243,14 +4243,9 @@ function autoComplete(str,curText)
 end
 
 CMDs = {}
-CMDs[#CMDs + 1] = {NAME = 'discord / support / help', DESC = 'Invite to the Infinite Yield support server.'}
-CMDs[#CMDs + 1] = {NAME = 'console', DESC = 'Loads old Roblox console'}
+CMDs[#CMDs + 1] = {NAME = 'discord / support / help / plugins', DESC = 'Invite to the Infinite Yield support server.'}
 CMDs[#CMDs + 1] = {NAME = 'explorer / dex', DESC = 'Opens DEX by Moon'}
-CMDs[#CMDs + 1] = {NAME = 'lagswitch / ls', DESC = 'LagSwitch key = X'}
-CMDs[#CMDs + 1] = {NAME = 'parvus / aimbot', DESC = 'Aimbot / Esp / Universal'}
-CMDs[#CMDs + 1] = {NAME = 'executor / exe', DESC = 'Internal Executor'}
-CMDs[#CMDs + 1] = {NAME = 'vestra / dahood', DESC = 'DaHood Script'}
-CMDs[#CMDs + 1] = {NAME = 'olddex / odex', DESC = 'Opens Old DEX by Moon'}
+CMDs[#CMDs + 1] = {NAME = 'synapse / exei', DESC = 'Internal Executor'}
 CMDs[#CMDs + 1] = {NAME = 'remotespy / rspy', DESC = 'Opens FrostHook Spy'}
 CMDs[#CMDs + 1] = {NAME = 'audiologger / alogger', DESC = 'Opens Edges audio logger'}
 CMDs[#CMDs + 1] = {NAME = 'serverinfo / info', DESC = 'Gives you info about the server'}
@@ -4289,7 +4284,7 @@ CMDs[#CMDs + 1] = {NAME = 'clientantiteleport / antiteleport (CLIENT)', DESC = '
 CMDs[#CMDs + 1] = {NAME = 'allowrejoin / allowrj [true/false] (CLIENT)', DESC = 'Changes if antiteleport allows you to rejoin or not'}
 CMDs[#CMDs + 1] = {NAME = 'cancelteleport / canceltp', DESC = 'Cancels teleports in progress'}
 CMDs[#CMDs + 1] = {NAME = 'volume / vol [0-10]', DESC = 'Adjusts your game volume on a scale of 0 to 10'}
-CMDs[#CMDs + 1] = {NAME = 'antilag / boost / lowgraphics', DESC = 'Lowers game quality to boost FPS'}
+CMDs[#CMDs + 1] = {NAME = 'antilag / boostfps / lowgraphics', DESC = 'Lowers game quality to boost FPS'}
 CMDs[#CMDs + 1] = {NAME = 'record / rec', DESC = 'Starts roblox recorder'}
 CMDs[#CMDs + 1] = {NAME = 'screenshot / scrnshot', DESC = 'Takes a screenshot'}
 CMDs[#CMDs + 1] = {NAME = 'togglefullscreen / togglefs', DESC = 'Toggles fullscreen'}
@@ -4604,7 +4599,7 @@ CMDs[#CMDs + 1] = {NAME = 'notools / removetools / deletetools', DESC = 'Removes
 CMDs[#CMDs + 1] = {NAME = 'deleteselectedtool / dst', DESC = 'Removes any currently selected tools'}
 CMDs[#CMDs + 1] = {NAME = 'grabtools', DESC = 'Automatically get tools that are dropped'}
 CMDs[#CMDs + 1] = {NAME = 'ungrabtools / nograbtools', DESC = 'Disables grabtools'}
-CMDs[#CMDs + 1] = {NAME = 'copytools / ct [plr] (CLIENT)', DESC = 'Copies a players tools'}
+CMDs[#CMDs + 1] = {NAME = 'copytools [plr] (CLIENT)', DESC = 'Copies a players tools'}
 CMDs[#CMDs + 1] = {NAME = 'dupetools / clonetools [num]', DESC = 'Duplicates your inventory tools a set ammount of times'}
 CMDs[#CMDs + 1] = {NAME = 'givetool / givetools', DESC = 'Gives all the tools you\'re holding to [plr] using the attach method.'}
 CMDs[#CMDs + 1] = {NAME = 'droptools', DESC = 'Drops your tools'}
@@ -7409,7 +7404,7 @@ addcmd('hideiy',{},function(args, speaker)
 	end
 	minimizeNum = 0
 	minimizeHolder()
-	if not (args[1] and tostring(args[1]) == '') then notify('IY Hidden','You can press the prefix key to access the command bar') end
+	if not (args[1] and tostring(args[1]) == 'nonotify') then notify('IY Hidden','You can press the prefix key to access the command bar') end
 end)
 
 addcmd('showiy',{'unhideiy'},function(args, speaker)
@@ -7532,7 +7527,7 @@ addcmd('volume',{'vol'},function(args, speaker)
 	UserSettings():GetService("UserGameSettings").MasterVolume = level
 end)
 
-addcmd('antilag',{'boost','lowgraphics'},function(args, speaker)
+addcmd('antilag',{'boostfps','lowgraphics'},function(args, speaker)
 	local Terrain = workspace:FindFirstChildOfClass('Terrain')
 	Terrain.WaterWaveSize = 0
 	Terrain.WaterWaveSpeed = 0
@@ -9876,133 +9871,14 @@ addcmd('deleteselectedtool',{'dst'},function(args, speaker)
 	end
 end)
 
-addcmd('console',{},function(args, speaker)
-	-- Thanks wally!!
-	notify("Loading",'Hold on a sec')
-	local _, str = pcall(function()
-		return game:HttpGet("https://gist.githubusercontent.com/luatsuki/a1b48e02d5710ebff8fe1ffb1fc5ea38/raw/055143d9238eb6645fbb1f5c4a9a0122ca90c8f4/Console", true)
-	end)
-
-	local s, e = loadstring(str)
-	if typeof(s) ~= "function" then
-		return
-	end
-
-	local success, message = pcall(s)
-	if (not success) then
-		if printconsole then
-			printconsole(message)
-		elseif printoutput then
-			printoutput(message)
-		end
-	end
-	wait(1)
-	notify('Console','Press F9 to open the console')
-end)
-
 addcmd('explorer', {'dex'}, function(args, speaker)
     notify('Loading', 'Hold on a sec')
     loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
 end)
 
-addcmd('lagswitch', {'ls'}, function(args, speaker)
+addcmd('synapse', {'exei'}, function(args, speaker)
     notify('Loading', 'Hold on a sec')
-    loadstring(game:HttpGet("https://paste.gg/p/anonymous/d3492bd620bd4c46b54680ac80b0fa0d/files/161ddd9c992c4ceba3c298458d45188a/raw"))()
-end)
-
-addcmd('parvus', {'aimbot'}, function(args, speaker)
-    notify('Loading', 'Hold on a sec')
-    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/AlexR32/Parvus/main/Loader.lua"))(false,5)
-end)
-
-addcmd('executor', {'exe'}, function(args, speaker)
-    notify('Loading', 'Hold on a sec')
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Longassnamefornoreason/Aristois/main/Executor"))()
-end)
-
-addcmd('vestra', {'dahood'}, function(args, speaker)
-    notify('Loading', 'Hold on a sec')
-    lloadstring(game:HttpGet("https://raw.githubusercontent.com/xandudiscord/vestra/main/loader.lua"))()
-end)
-
-addcmd('olddex', {'odex'}, function(args, speaker)
-    notify('Loading old explorer', 'Hold on a sec')
-    
-    local getobjects = function(a)
-        local Objects = {}
-        if a then
-            local b = InsertService:LoadLocalAsset(a)
-            if b then 
-                table.insert(Objects, b) 
-            end
-        end
-        return Objects
-    end
-
-    local Dex = getobjects("rbxassetid://10055842438")[1]
-    Dex.Parent = PARENT
-
-    local function Load(Obj, Url)
-        local function GiveOwnGlobals(Func, Script)
-            -- Fix for this edit of dex being poorly made
-            -- I (Alex) would like to commemorate whoever added this dex in somehow finding the worst dex to ever exist
-            local Fenv, RealFenv, FenvMt = {}, {
-                script = Script,
-                getupvalue = function(a, b)
-                    return nil -- force it to use globals
-                end,
-                getreg = function() -- It loops registry for some idiotic reason so stop it from doing that and just use a global
-                    return {} -- force it to use globals
-                end,
-                getprops = getprops or function(inst)
-                    if getproperties then
-                        local props = getproperties(inst)
-                        if props[1] and gethiddenproperty then
-                            local results = {}
-                            for _,name in pairs(props) do
-                                local success, res = pcall(gethiddenproperty, inst, name)
-                                if success then
-                                    results[name] = res
-                                end
-                            end
-                            
-                            return results
-                        end
-                        
-                        return props
-                    end
-                    
-                    return {}
-                end
-            }, {}
-            FenvMt.__index = function(a,b)
-                return RealFenv[b] == nil and getgenv()[b] or RealFenv[b]
-            end
-            FenvMt.__newindex = function(a, b, c)
-                if RealFenv[b] == nil then 
-                    getgenv()[b] = c 
-                else 
-                    RealFenv[b] = c 
-                end
-            end
-            setmetatable(Fenv, FenvMt)
-            pcall(setfenv, Func, Fenv)
-            return Func
-        end
-
-        local function LoadScripts(_, Script)
-            if Script:IsA("LocalScript") then
-                coroutine.wrap(function()
-                    GiveOwnGlobals(loadstring(Script.Source,"="..Script:GetFullName()), Script)()
-                end)()
-            end
-            table.foreach(Script:GetChildren(), LoadScripts)
-        end
-                    
-        LoadScripts(nil, Obj)
-    end
-
-    Load(Dex)
+    loadstring(game:HttpGet(""))()
 end)
 
 addcmd('remotespy',{'rspy'},function(args, speaker)
@@ -10538,7 +10414,7 @@ addcmd('unlight',{'nolight'},function(args, speaker)
 	end
 end)
 
-addcmd('copytools',{'ct'},function(args, speaker)
+addcmd('copytools',{},function(args, speaker)
 	local players = getPlayer(args[1], speaker)
 	for i,v in pairs(players)do
 		task.spawn(function()
@@ -12194,12 +12070,12 @@ task.spawn(function()
 			ExitImage.Image = "rbxassetid://5054663650"
 			ExitImage.ZIndex = 10
 
-			wait(0.1)
+			wait(1)
 			AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, 150), "InOut", "Quart", 0.5, true, nil)
 
 			Exit.MouseButton1Click:Connect(function()
 				AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, -500), "InOut", "Quart", 0.5, true, nil)
-				wait(0.1)
+				wait(0.6)
 				AnnGUI:Destroy()
 			end)
 		end
@@ -12210,14 +12086,14 @@ coroutine.wrap(function()
 	wait()
 	Credits:TweenPosition(UDim2.new(0, 0, 0.9, 0), "Out", "Quart", 0.2)
 	Logo:TweenSizeAndPosition(UDim2.new(0, 175, 0, 175), UDim2.new(0, 37, 0, 45), "Out", "Quart", 0.3)
-	wait(0.1)
+	wait(1)
 	for i = 0, 1, 0.1 do
 		Logo.ImageTransparency = i
 		IntroBackground.BackgroundTransparency = i
 		wait()
 	end
 	Credits:TweenPosition(UDim2.new(0, 0, 0.9, 30), "Out", "Quart", 0.2)
-	wait(0.1)
+	wait(0.2)
 	Logo:Destroy()
 	Credits:Destroy()
 	IntroBackground:Destroy()
