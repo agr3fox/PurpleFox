@@ -4244,7 +4244,6 @@ end
 
 CMDs = {}
 CMDs[#CMDs + 1] = {NAME = 'discord / support / help / plugins', DESC = 'Invite to the Infinite Yield support server.'}
-CMDs[#CMDs + 1] = {NAME = 'explorer / dex', DESC = 'Opens DEX by Moon'}
 CMDs[#CMDs + 1] = {NAME = 'parvus / aim', DESC = 'Open Parvus Hub'}
 CMDs[#CMDs + 1] = {NAME = 'remotespy / rspy', DESC = 'Opens FrostHook Spy'}
 CMDs[#CMDs + 1] = {NAME = 'audiologger / alogger', DESC = 'Opens Edges audio logger'}
@@ -9873,7 +9872,7 @@ end)
 
 addcmd('explorer', {'dex'}, function(args, speaker)
     notify('Loading', 'Hold on a sec')
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/agr3fox/PurpleFox/main/Dex.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/main.lua"))()
 end)
 
 addcmd('parvus', {'aim'}, function(args, speaker)
