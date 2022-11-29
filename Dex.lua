@@ -1,4 +1,3 @@
-# Dex New
 local EmbeddedModules = {
 ["Explorer"] = function()
 --[[
@@ -10922,7 +10921,7 @@ Main = (function()
 		if val then Main.MainGui.OpenButton.MainFrame.Visible = true end
 		Main.MainGui.OpenButton.MainFrame:TweenSize(val and UDim2.new(0,224,0,200) or UDim2.new(0,0,0,0),Enum.EasingDirection.Out,Enum.EasingStyle.Quad,0.2,true)
 		--Main.MainGui.OpenButton.BackgroundTransparency = val and 0 or (Lib.CheckMouseInGui(Main.MainGui.OpenButton) and 0 or 0.2)
-		service.TweenService:Create(Main.MainGui.OpenButton,TweenInfo.new(0.2,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{BackgroundTransparency = val and 0 or (Lib.CheckMouseInGui(Main.MainGui.OpenButton) and 0 or 0.2)}):Play()
+		service.TweenService:Create(Main.MainGui.OpenButton,TweenInfo.new(0.2,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{BackgroundTransparency = val and 0 or (Lib.CheckMouseInGui(Main.MainGui.OpenButton) and 0 or 1)}):Play()
 		
 		if Main.MainGuiMouseEvent then Main.MainGuiMouseEvent:Disconnect() end
 		
@@ -10974,7 +10973,7 @@ Main = (function()
 		Main.MainGuiOpen = false
 		
 		local openButton = gui.OpenButton
-		openButton.BackgroundTransparency = 1
+		openButton.BackgroundTransparency = 0.2
 		openButton.MainFrame.Size = UDim2.new(0,0,0,0)
 		openButton.MainFrame.Visible = false
 		openButton.MouseButton1Click:Connect(function()
