@@ -9872,7 +9872,7 @@ end)
 
 addcmd('explorer', {'dex'}, function(args, speaker)
     notify('Loading', 'Hold on a sec')
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/main.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
 end)
 
 addcmd('parvus', {'aim'}, function(args, speaker)
