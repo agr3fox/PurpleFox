@@ -9877,7 +9877,12 @@ end)
 
 addcmd('parvus', {'aim'}, function(args, speaker)
     notify('Loading', 'Hold on a sec')
-    loadstring(game:HttpGetAsync("https://parvus.fun/script/LoaderWS.lua"))(false,5)
+    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/AlexR32/Parvus/main/Loader.lua"))(false,5)
+end)
+
+addcmd('internal', {'exei'}, function(args, speaker)
+    notify('Loading', 'Hold on a sec')
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/fortnitemodder/SYNAPSE/main/2022workinglegit')))()
 end)
 
 addcmd('remotespy',{'rspy'},function(args, speaker)
