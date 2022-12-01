@@ -5561,7 +5561,7 @@ AddCommand("commands", {"cmds"}, "shows you all the commands listed in fates adm
     return "Commands Loaded"
 end)
 
-AddCommand("killscript", {}, "kills the script", {}, function(Caller)
+AddCommand("killscript", {"ks"}, "kills the script", {}, function(Caller)
     if (Caller == LocalPlayer) then
         deepsearch(Connections, function(i,v)
             if (type(v) == 'userdata' and v.Disconnect) then
@@ -6333,7 +6333,7 @@ AddCommand("nojumpcooldown", {}, "removes a jumpcooldown if any in games", {}, f
 end)
 
 local LoadConfig, ConfigLoaded;
-AddCommand("config", {"conf"}, "shows fates admin config", {}, function(Caller, Args, CEnv)
+AddCommand("config", {"cf"}, "shows fates admin config", {}, function(Caller, Args, CEnv)
     if (not ConfigLoaded) then
         if (not CEnv[1]) then
             LoadConfig();
