@@ -5594,7 +5594,7 @@ AddCommand("killscript", {"ks"}, "kills the script", {}, function(Caller)
     end
 end)
 
-AddCommand("reloadscript", {}, "kills the script and reloads it", {}, function(Caller)
+AddCommand("normalscript", {"ns"}, "kills the script and reloads it", {}, function(Caller)
     if (Caller == LocalPlayer) then
         ExecuteCommand("killscript", {}, LocalPlayer);
         loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
