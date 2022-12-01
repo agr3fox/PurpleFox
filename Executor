@@ -80,7 +80,7 @@ Close.MouseButton1Click:Connect(function()
 end)
 
 ImageLabel.Parent = MainFrame
-ImageLabel.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+ImageLabel.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 ImageLabel.BorderSizePixel = 0
 ImageLabel.Position = UDim2.new(0.0149999997, 0, 0.015625, 27)
 ImageLabel.Size = UDim2.new(0, 515, 0, 246)
