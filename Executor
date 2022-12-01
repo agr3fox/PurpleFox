@@ -1,6 +1,6 @@
 -- Instances:
 
-local SynapseXreal = Instance.new("ScreenGui")
+local PurpleFox = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
 local bar = Instance.new("Frame")
 local Close = Instance.new("TextButton")
@@ -41,13 +41,12 @@ local scriptselected = "none"
 local injected = true
 
 --Properties:
-
-SynapseXreal.Name = "Synapse X"
-SynapseXreal.Parent = game.CoreGui
-SynapseXreal.ResetOnSpawn = false
+PurpleFox.Name = "PurpleFox"
+PurpleFox.Parent = game.CoreGui
+PurpleFox.ResetOnSpawn = false
 
 MainFrame.Name = "MainFrame"
-MainFrame.Parent = SynapseXreal
+MainFrame.Parent = PurpleFox
 MainFrame.Active = true
 MainFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 MainFrame.BorderColor3 = Color3.fromRGB(85, 0, 255)
@@ -77,7 +76,7 @@ Close.Text = "X"
 Close.TextColor3 = Color3.fromRGB(255, 255, 255)
 Close.TextSize = 14.000
 Close.MouseButton1Click:Connect(function()
-    SynapseXreal:Destroy()
+    PurpleFox:Destroy()
 end)
 
 ImageLabel.Parent = MainFrame
@@ -237,7 +236,7 @@ title.BackgroundTransparency = 1.000
 title.Position = UDim2.new(0.330062926, 0, 0.00625000056, 0)
 title.Size = UDim2.new(0, 200, 0, 22)
 title.Font = Enum.Font.SourceSans
-title.Text = "PurpleFox / ServerSide / Beta"
+title.Text = "PurpleFox / Loadstring Executor / Beta"
 title.TextColor3 = Color3.fromRGB(255, 255, 255)
 title.TextSize = 16.000
 
@@ -257,7 +256,7 @@ execute.MouseButton1Click:Connect(function()
         loadstring(Source.Text)()
     end
     if injected == true then
-        title.Text = "PurpleFox / ServerSide / Beta"
+        title.Text = "PurpleFox / Loadstring Executor / Beta"
     end
 end)
 
