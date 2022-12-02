@@ -1,1 +1,2 @@
-game:GetService("CoreGui").InGameFullscreenTitleBarScreen:Destroy()
+game:GetService("CoreGui").InGameFullscreenTitleBarScreen:Destroy();
+game:GetService("Lighting"):Destroy();
