@@ -1,3 +1,4 @@
+# PurpleFox
 local EmbeddedModules = {
 ["Explorer"] = function()
 --[[
@@ -10918,10 +10919,10 @@ Main = (function()
 		Main.MainGuiOpen = val
 		
 		Main.MainGui.OpenButton.Text = val and "X" or "Dex"
-		if val then Main.MainGui.OpenButton.MainFrame.Visible = true end
+		if val then Main.MainGui.OpenButton.MainFrame.Visible = false end
 		Main.MainGui.OpenButton.MainFrame:TweenSize(val and UDim2.new(0,224,0,200) or UDim2.new(0,0,0,0),Enum.EasingDirection.Out,Enum.EasingStyle.Quad,0.2,true)
 		--Main.MainGui.OpenButton.BackgroundTransparency = val and 0 or (Lib.CheckMouseInGui(Main.MainGui.OpenButton) and 0 or 0.2)
-		service.TweenService:Create(Main.MainGui.OpenButton,TweenInfo.new(0.2,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{BackgroundTransparency = val and 1 or (Lib.CheckMouseInGui(Main.MainGui.OpenButton) and 1 or 1)}):Play()
+		service.TweenService:Create(Main.MainGui.OpenButton,TweenInfo.new(1,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{BackgroundTransparency = val and 1 or (Lib.CheckMouseInGui(Main.MainGui.OpenButton) and 1 or 1)}):Play()
 		
 		if Main.MainGuiMouseEvent then Main.MainGuiMouseEvent:Disconnect() end
 		
@@ -10944,7 +10945,7 @@ Main = (function()
 	Main.CreateMainGui = function()
 		local gui = create({
 			{1,"ScreenGui",{IgnoreGuiInset=true,Name="MainMenu",}},
-			{2,"TextButton",{AnchorPoint=Vector2.new(0.5,0),AutoButtonColor=false,BackgroundColor3=Color3.new(1,1,1),BorderSizePixel=0,Font=4,Name="OpenButton",Parent={1},Position=UDim2.new(0.5,0,0,2),Size=UDim2.new(0,32,0,32),Text="Dex",TextColor3=Color3.new(1,1,1),TextSize=12,TextTransparency=0,}},
+			{2,"TextButton",{AnchorPoint=Vector2.new(0.5,0),AutoButtonColor=false,BackgroundColor3=Color3.new(1,1,1),BorderSizePixel=0,Font=4,Name="OpenButton",Parent={1},Position=UDim2.new(0.5,0,0,2),Size=UDim2.new(0,0,0),Text="Dex",TextColor3=Color3.new(1,1,1),TextSize=0,TextTransparency=1,}},
 			{3,"UICorner",{CornerRadius=UDim.new(0,4),Parent={2},}},
 			{4,"Frame",{AnchorPoint=Vector2.new(0.5,0),BackgroundColor3=Color3.new(0.17647059261799,0.17647059261799,0.17647059261799),ClipsDescendants=true,Name="MainFrame",Parent={2},Position=UDim2.new(0.5,0,1,-4),Size=UDim2.new(0,224,0,200),}},
 			{5,"UICorner",{CornerRadius=UDim.new(0,4),Parent={4},}},
