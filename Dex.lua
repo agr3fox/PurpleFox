@@ -1,4 +1,3 @@
-# PurpleFox
 local EmbeddedModules = {
 ["Explorer"] = function()
 --[[
